@@ -74,13 +74,11 @@ putNumbersOnScreen = function(e){
 
         if (num1 == ""){
             num1 = displayScreen.textContent;
-            clearScreen();
-        } 
-        if ((num1 !== "") && (num2 == "")){
+            //clearScreen();
+        } else if ((num1 !== "") && (num2 == "")){
             num2 = displayScreen.textContent;
             clearScreen();
-        }
-        if ((num1 !== "") && (num2 !== "")){
+        } if ((num1 !== "") && (num2 !== "")){
             let result = evalEquation();
             history.textContent = `${num1} ${operator} ${num2} = ${result}`;
             num1 = displayScreen.textContent;
@@ -97,6 +95,9 @@ putNumbersOnScreen = function(e){
         num2 = "";
     } else {
         if(['+','-','÷','x'].includes(displayScreen.textContent)){
+            clearScreen();
+        }
+        if (num1 !== ""){
             clearScreen();
         }
         currentInput += buttonText;
