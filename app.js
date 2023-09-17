@@ -14,10 +14,6 @@ multiply = function(a, b){
     return a * b;
 }
 
-let num1 = 4;
-let operator = '-';
-let num2 = 6;
-
 //my idea
 let operations = {
     '+': add,
@@ -28,21 +24,35 @@ let operations = {
 
 //chatgpt helped with "return operations[operator](a, b)"
 function operate(a, operator, b){
-    if (operator in operations) return operations[operator](a, b);
+    if (operator in operations) return operations[operator](Number(a), Number(b));
     else return "invalid operator";
 }
 
-// calc display screen
-//DELETE THIS ---> calcNumbers = digits.map(number => number.textContent)
-
-
+let currentInput = "";
+let operator = "";
 
 putNumbersOnScreen = function(e){
-    let input = e.srcElement.textContent;
-    displayScreen.textContent = input;
-    if(input in operations){
-        let answer = operate(a, input, b);
+    const buttonText = e.srcElement.textContent;
+    
+
+    if(buttonText === "CLR"){
+        currentInput = "";
+        displayScreen.textContent = "";
+
+    } else if(['+','-','÷','x'].includes(buttonText)){
+        operator = buttonText;
+        currentInput += buttonText;
+        displayScreen.textContent = currentInput;
+    } else if (buttonText === "="){
+        let eqn = displayScreen.textContent.split(operator)
+        currentInput = operate(eqn[0], operator, eqn[1]);
+        displayScreen.textContent = currentInput;
+    } else {
+        currentInput += buttonText;
+        displayScreen.textContent = currentInput;
     }
+    
+    
 }
 
 digit = document.querySelector('.buttons')
@@ -50,9 +60,3 @@ digit.addEventListener('click', putNumbersOnScreen);
 
 
 
-
-
-
-
-
-//DELETE THIS ---> console.log(operate(num1, operator, num2));
