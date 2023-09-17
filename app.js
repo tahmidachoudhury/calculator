@@ -1,5 +1,6 @@
-const digits = Array.from(document.querySelectorAll('.digit'));
-const displayScreen = document.querySelector('.display');
+const digits = Array.from(document.querySelectorAll(".digit"));
+const screen = document.querySelector(".display")
+const displayScreen = document.querySelector(".display-screen");
 
 //operate function-------------------------------------------------------------------
 add = function(a, b){
@@ -40,8 +41,6 @@ let operator = "";
 let num2 = "";
 
 function evalEquation(){
-    // let eqn = displayScreen.textContent.split(operator)
-    // currentInput = operate(eqn[0], operator, eqn[1]);
     currentInput = operate(num1, operator, num2);
     displayScreen.textContent = currentInput;
 }
@@ -51,27 +50,47 @@ function clearScreen(){
     displayScreen.textContent = "";
 }
 
+//history screen --------------------------------------------------------------------------
+const history = document.createElement("div");
+function displayHistory(){
+    history.textContent = displayScreen.textContent;
+    screen.insertBefore(history, displayScreen);
+    clearScreen();
+}
+// ----------------------------------------------------------------------------------------
+
 putNumbersOnScreen = function(e){
     const buttonText = e.srcElement.textContent;    
     if(buttonText === "CLR"){
         clearScreen();
+        num1 = "";
+        num2 = "";
 
     } else if(['+','-','÷','x'].includes(buttonText)){
+
         if (num1 == ""){
             num1 = displayScreen.textContent;
             clearScreen();
         } 
+        if ((num1 !== "") && (num2 == "")){
+            num2 = displayScreen.textContent;
+            clearScreen();
+        }
+        if ((num1 !== "") && (num2 !== "")){
+            evalEquation();
+            // -----------output the result onto the history div
+            num1 = displayScreen.textContent;
+            num2 = "";
+            clearScreen();
+        }
         operator = buttonText;
-        currentInput += buttonText;
-        displayScreen.textContent = currentInput;
     
     } else if (buttonText === "="){
-        if(num2 == ""){
-            num2 = displayScreen.textContent;
-        }
+        num2 = displayScreen.textContent;
         evalEquation();
         num1 = "";
         num2 = "";
+        //screen.removeChild(history);
     } else {
         if(['+','-','÷','x'].includes(displayScreen.textContent)){
             clearScreen();
@@ -84,5 +103,8 @@ putNumbersOnScreen = function(e){
 digit = document.querySelector('.buttons')
 digit.addEventListener('click', putNumbersOnScreen);
 // -----------------------------------------------------------------------------------------
+
+
+
 
 
