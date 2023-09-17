@@ -4,6 +4,10 @@
 }
 
 /*display screen*/
+.history-screen{
+    text-align: left;
+}
+
 .display{
     border: 1px solid;
     padding-top: 10px;

@@ -43,6 +43,7 @@ let num2 = "";
 function evalEquation(){
     currentInput = operate(num1, operator, num2);
     displayScreen.textContent = currentInput;
+    return currentInput;
 }
 
 function clearScreen(){
@@ -52,6 +53,8 @@ function clearScreen(){
 
 //history screen --------------------------------------------------------------------------
 const history = document.createElement("div");
+history.classList.add('history-screen')
+screen.insertBefore(history, displayScreen);
 function displayHistory(){
     history.textContent = displayScreen.textContent;
     screen.insertBefore(history, displayScreen);
@@ -65,6 +68,7 @@ putNumbersOnScreen = function(e){
         clearScreen();
         num1 = "";
         num2 = "";
+        history.textContent = "";
 
     } else if(['+','-','÷','x'].includes(buttonText)){
 
@@ -77,8 +81,8 @@ putNumbersOnScreen = function(e){
             clearScreen();
         }
         if ((num1 !== "") && (num2 !== "")){
-            evalEquation();
-            // -----------output the result onto the history div
+            let result = evalEquation();
+            history.textContent = `${num1} ${operator} ${num2} = ${result}`;
             num1 = displayScreen.textContent;
             num2 = "";
             clearScreen();
@@ -87,10 +91,10 @@ putNumbersOnScreen = function(e){
     
     } else if (buttonText === "="){
         num2 = displayScreen.textContent;
-        evalEquation();
+        let result = evalEquation();
+        history.textContent = `${num1} ${operator} ${num2} = ${result}`;
         num1 = "";
         num2 = "";
-        //screen.removeChild(history);
     } else {
         if(['+','-','÷','x'].includes(displayScreen.textContent)){
             clearScreen();
