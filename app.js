@@ -74,7 +74,6 @@ putNumbersOnScreen = function(e){
 
         if (num1 == ""){
             num1 = displayScreen.textContent;
-            //clearScreen();
         } else if ((num1 !== "") && (num2 == "")){
             num2 = displayScreen.textContent;
             clearScreen();
@@ -88,7 +87,12 @@ putNumbersOnScreen = function(e){
         operator = buttonText;
     
     } else if (buttonText === "="){
-        num2 = displayScreen.textContent;
+        
+        if (num1 !== "") {
+            num2 = displayScreen.textContent;
+        } else {
+            return;
+        }
         let result = evalEquation();
         history.textContent = `${num1} ${operator} ${num2} = ${result}`;
         num1 = "";
