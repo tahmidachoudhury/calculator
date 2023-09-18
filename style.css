@@ -1,6 +1,21 @@
-.container{
-    display: flex;
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex; 
     justify-content: center;
+    align-items: center;
+    height: inherit;
+    font-family: 'Lucida Console', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+    background-color: rgba(30, 56, 33, 0.768);
 }
 
 /*display screen*/
@@ -9,30 +24,88 @@
 }
 
 .display{
-    border: 1px solid;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.276);
+    border: 1px solid rgba(255, 255, 255, 0.743);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-size: 15px;
+    font-family: inherit;
+    overflow: hidden;
+    padding: 20px;
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    height: 76px;
 }
+
 /*---------------------------------------*/
 
 .calc-case{
-    width: 200px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.24);
+    border: 1px solid rgba(225, 255, 255, 0.34);
+    flex-basis: 400px;
+    height: 540px;
+    padding: 20px 35px;
 }
 
 
 /*buttons*/
+
+
 div.row{
     display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
 }
 
 button{
-    padding: 10px;
-    flex: 1;
+    border-radius: 8px;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.461);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    height: 70px;
+    width: 70px;
+    color: #232323;
+    flex-basis: 24%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-button.zero{
-    flex-basis: 50px;
+.digit.zero{
+    flex-basis: 49%;
 }
+
+.clear,.delete{
+    flex-basis: 36%;
+}
+
 /*---------------------------------------*/
 
+.cred{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    margin-top: 30px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*transitions------------------------------------------*/
