@@ -116,21 +116,13 @@ putNumbersOnScreen = function(e){
             currentInput = displayScreen.textContent;
         } else if (displayScreen.textContent == ""){
             currentInput = "";
+             if (operator !== ""){
+                 operator = "";
+                 del(history);
+             }
         }
     
     } else {
-        //this stops operator from showing on screen
-        // if(['+','-','÷','x'].includes(displayScreen.textContent)){
-        //     clearScreen();
-        // }
-
-        //problem below
-        //causing the num2 to only be one digit
-
-        // if (displayScreen.textContent == ""){
-        //     currentInput = "";
-        // }
-
         currentInput += buttonText;
         displayScreen.textContent = currentInput;
     }  
@@ -138,4 +130,4 @@ putNumbersOnScreen = function(e){
 
 digit = document.querySelector('.buttons')
 digit.addEventListener('click', putNumbersOnScreen);
-// -----------------------------------------------------------------------------------------.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;
+// -----------------------------------------------------------------------------------------
