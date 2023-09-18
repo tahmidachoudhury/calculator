@@ -1,1 +1,1 @@
-This is the final project from The Odin Project course.
+This is the final project from The Odin Project Foundations course.
