@@ -1,6 +1,7 @@
 const digits = Array.from(document.querySelectorAll(".digit"));
 const screen = document.querySelector(".display")
 const displayScreen = document.querySelector(".display-screen");
+
 //operate function-------------------------------------------------------------------
 add = function(a, b){
     return a + b;
@@ -14,6 +15,7 @@ divide = function(a, b){
 multiply = function(a, b){
     return a * b;
 }
+
 //my idea
 let operations = {
     '+': add,
@@ -21,17 +23,23 @@ let operations = {
     '÷': divide,
     'x': multiply,
 }
+
 //chatgpt helped with "return operations[operator](a, b)"
 function operate(a, operator, b){
     if (operator in operations) return operations[operator](Number(a), Number(b));
     else return "invalid operator";
 }
 //---------------------------------------------------------------------------------------
+
+
+
+
 //calculator display --------------------------------------------------------------------
 let currentInput = "";
 let num1 = "";
 let operator = "";
 let num2 = "";
+
 function evalEquation(){
     currentInput = operate(num1, operator, num2);
     displayScreen.textContent = currentInput;
@@ -41,7 +49,6 @@ function evalEquation(){
 function clearScreen(){
     currentInput = "";
     displayScreen.textContent = "";
-    history.textContent = "";
 }
 
 //history screen --------------------------------------------------------------------------
@@ -54,6 +61,7 @@ function displayHistory(){
     clearScreen();
 }
 // ----------------------------------------------------------------------------------------
+
 putNumbersOnScreen = function(e){
     const buttonText = e.srcElement.textContent;    
     if(buttonText === "CLR"){
@@ -66,13 +74,10 @@ putNumbersOnScreen = function(e){
 
         if (num1 == ""){
             num1 = displayScreen.textContent;
-            clearScreen();
-        } 
-        if ((num1 !== "") && (num2 == "")){
+        } else if ((num1 !== "") && (num2 == "")){
             num2 = displayScreen.textContent;
             clearScreen();
-        }
-        if ((num1 !== "") && (num2 !== "")){
+        } if ((num1 !== "") && (num2 !== "")){
             let result = evalEquation();
             history.textContent = `${num1} ${operator} ${num2} = ${result}`;
             num1 = displayScreen.textContent;
@@ -80,8 +85,9 @@ putNumbersOnScreen = function(e){
             clearScreen();
         }
         operator = buttonText;
-
-    } else if (buttonText === "="){       
+    
+    } else if (buttonText === "="){
+        
         if (num1 !== "") {
             num2 = displayScreen.textContent;
         } else {
@@ -91,15 +97,20 @@ putNumbersOnScreen = function(e){
         history.textContent = `${num1} ${operator} ${num2} = ${result}`;
         num1 = "";
         num2 = "";
-        //screen.removeChild(history);
     } else {
         if(['+','-','÷','x'].includes(displayScreen.textContent)){
+            clearScreen();
+        }
+        //problem below
+        //causing the num2 to only be one digit
+        if (num1 !== "") {
             clearScreen();
         }
         currentInput += buttonText;
         displayScreen.textContent = currentInput;
     }  
 }
+
 digit = document.querySelector('.buttons')
 digit.addEventListener('click', putNumbersOnScreen);
 // -----------------------------------------------------------------------------------------
