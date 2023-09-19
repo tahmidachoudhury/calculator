@@ -121,15 +121,15 @@ a{
 
 /*transitions------------------------------------------*/
 .oper-highlight{
-    background-color: rgba(134, 240, 148, 0.403);
+    background-color: rgba(134, 240, 148, 0.223);
 }
 
 .process-highlight{
-    background-color: rgba(245, 40, 40, 0.474);
+    background-color: rgba(245, 40, 40, 0.325);
 }
 
 .eql-highlight{
-    background-color: rgba(137, 61, 10, 0.581);
+    background-color: #e8d1c5;
 }
 
 a:hover{

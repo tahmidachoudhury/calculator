@@ -63,8 +63,10 @@ function displayHistory(){
 // ----------------------------------------------------------------------------------------
 
 putNumbersOnScreen = function(e){
-    
-    const buttonText = e.srcElement.textContent;    
+    const buttonText = e.srcElement.textContent;
+    if (e.target.localName !== "button"){
+        return
+    }
     if(buttonText === "CLR"){
         clearScreen();
         num1 = "";
