@@ -70,10 +70,19 @@ putNumbersOnScreen = function(e){
             '+','-','/','*','.',
             '0','1','2','3','4',
             '5','6','7','8','9',
-            '=',
+            '=', 'Escape', 'Backspace',
         ]
         if (!allowedInputs.includes(buttonText)){
             return;
+        }
+        if (buttonText === '/'){
+            buttonText = '÷';
+        } else if (buttonText === '*'){
+            buttonText = 'x';
+        } else if (buttonText === 'Escape'){
+            buttonText = 'CLR';
+        } else if (buttonText === 'Backspace'){
+            buttonText = 'DEL';
         }
     } else if (e instanceof PointerEvent){
         buttonText = e.srcElement.textContent;
