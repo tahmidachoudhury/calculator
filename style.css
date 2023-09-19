@@ -139,3 +139,7 @@ a:hover{
 button:hover{
     transform: scale(0.97);
 }
+
+.digit:hover{
+    background-color: rgba(215, 250, 217, 0.24);
+}
