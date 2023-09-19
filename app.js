@@ -63,6 +63,7 @@ function displayHistory(){
 // ----------------------------------------------------------------------------------------
 
 putNumbersOnScreen = function(e){
+    
     const buttonText = e.srcElement.textContent;    
     if(buttonText === "CLR"){
         clearScreen();
@@ -92,7 +93,7 @@ putNumbersOnScreen = function(e){
         operator = buttonText;
     
     } else if (buttonText === "="){
-        
+
         if (num1 !== "") {
             num2 = displayScreen.textContent;
         } else {
@@ -131,3 +132,45 @@ putNumbersOnScreen = function(e){
 digit = document.querySelector('.buttons')
 digit.addEventListener('click', putNumbersOnScreen);
 // -----------------------------------------------------------------------------------------
+
+// button highlight ------------------------------------------------------------------------------
+
+let hoverOperations = {
+    a: document.querySelector(".divide"),
+    b: document.querySelector(".multiply"),
+    c: document.querySelector(".subtract"),
+    d: document.querySelector(".add"),
+}
+
+let hoverProcess = {
+    a: document.querySelector(".clear"),
+    b: document.querySelector(".delete"),
+}
+
+for (let key in hoverOperations){
+    let operator = hoverOperations[key];
+    operator.addEventListener("mouseover", function(e){
+        e.target.classList.add("oper-highlight");
+    })
+    operator.addEventListener("mouseout", function(e){
+        e.target.classList.remove("oper-highlight");
+    })
+}
+
+for (let key in hoverProcess){
+    let process = hoverProcess[key];
+    process.addEventListener("mouseover", function(e){
+        e.target.classList.add("process-highlight");
+    })
+    process.addEventListener("mouseout", function(e){
+        e.target.classList.remove("process-highlight");
+    })
+}
+
+const eql = document.querySelector(".equals");
+eql.addEventListener("mouseover", function(e){
+    e.target.classList.add("eql-highlight");
+})
+eql.addEventListener("mouseout", function(e){
+    e.target.classList.remove("eql-highlight");
+})

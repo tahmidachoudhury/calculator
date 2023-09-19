@@ -80,14 +80,24 @@ button{
     font-family: sans-serif;
     font-weight: bold;
     font-size: 15px;
+    transition: all 0.3s;
 }
 
-.digit.zero{
+.divide,
+.multiply,
+.add,
+.subtract{
+    transition: all 0.3s;
+}
+
+.equals{
     flex-basis: 49%;
+    transition: all 0.3s;
 }
 
-.clear,.delete{
+.clear, .delete{
     flex-basis: 36%;
+    transition: all 0.3s;
 }
 
 /*---------------------------------------*/
@@ -108,4 +118,24 @@ a{
     font-family: 'Poppins', sans-serif;
 }
 
+
 /*transitions------------------------------------------*/
+.oper-highlight{
+    background-color: rgba(134, 240, 148, 0.403);
+}
+
+.process-highlight{
+    background-color: rgba(245, 40, 40, 0.474);
+}
+
+.eql-highlight{
+    background-color: rgba(137, 61, 10, 0.581);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+button:hover{
+    transform: scale(0.97);
+}
