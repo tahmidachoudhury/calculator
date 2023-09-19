@@ -39,6 +39,7 @@ let currentInput = "";
 let num1 = "";
 let operator = "";
 let num2 = "";
+let buttonText = "";
 
 function evalEquation(){
     currentInput = operate(num1, operator, num2);
@@ -63,10 +64,24 @@ function displayHistory(){
 // ----------------------------------------------------------------------------------------
 
 putNumbersOnScreen = function(e){
-    const buttonText = e.srcElement.textContent;
-    if (e.target.localName !== "button"){
-        return
+    if (e instanceof KeyboardEvent){
+        buttonText = e.key;
+        const allowedInputs = [
+            '+','-','/','*','.',
+            '0','1','2','3','4',
+            '5','6','7','8','9',
+            '=',
+        ]
+        if (!allowedInputs.includes(buttonText)){
+            return;
+        }
+    } else if (e instanceof PointerEvent){
+        buttonText = e.srcElement.textContent;
+        if (e.target.localName !== "button"){
+            return
+        }
     }
+    
     if(buttonText === "CLR"){
         clearScreen();
         num1 = "";
@@ -176,3 +191,6 @@ eql.addEventListener("mouseover", function(e){
 eql.addEventListener("mouseout", function(e){
     e.target.classList.remove("eql-highlight");
 })
+
+//keyboard keys feature ------------------------------------
+window.addEventListener("keydown", putNumbersOnScreen);
