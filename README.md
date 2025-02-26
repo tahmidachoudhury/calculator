@@ -45,13 +45,13 @@ Below are some screenshots that provide a visual overview of the project:
 
 ### Main Interface
 
-![Main Interface](images/dark-mode.png)
-_The main screen that defaults in dark mode. Here you can interact with all the different features._
+![Main Interface](images/main-interface.png)
+_The main screen. I can not take credit for the design as I saw an example project and really liked the clean, simple look. This is the only page of the site and here is where you can interact with all the different features._
 
 ### Feature 1: Responsive Design
 
 ![Feature 1](images/responsive-design.png)
-_This feature is essentially a preset of "warm" hex values. This is implemented by a few lines of code that randomises the hex value in a given array._
+_After learning more about CSS, I returned to this project and used media queries to make the calculator responsive to different display sizes_
 
 ### Feature 2: Button highlights
 
@@ -60,7 +60,7 @@ _This feature is essentially a preset of "warm" hex values. This is implemented 
 ![EQL button](images/button-highlight3.png)
 ![Regular number input](images/button-highlight4.png)
 
-_This feature randomizes the hex value. This code was difficult to implement, so I used stack overflow for help._
+_Instead of keeping all buttons the same colour, I found other apps dynamically changing colour when interacted with. After implementing, it really improved the feel of the calculator and made it a lot easier on the eyes._
 
 ---
 
