@@ -43,7 +43,7 @@ Below are some screenshots that provide a visual overview of the project:
 
 ### Main Interface
 
-![Main Interface](images/dark-mode.png)
+![Main Interface](images/main-interface.png)
 _The main screen that defaults in dark mode. Here you can interact with all the different features._
 
 ### Feature 1: Warm Colour
