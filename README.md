@@ -23,6 +23,8 @@ A simple web calculator with the logic built using JavaScript fundementals. I bu
 
 - **Feature 1:** Responsive design.
 
+- **Feature 2:** Button highlights for better UX
+
 ---
 
 ## Installation
@@ -43,23 +45,22 @@ Below are some screenshots that provide a visual overview of the project:
 
 ### Main Interface
 
-![Main Interface](images/main-interface.png)
+![Main Interface](images/dark-mode.png)
 _The main screen that defaults in dark mode. Here you can interact with all the different features._
 
-### Feature 1: Warm Colour
+### Feature 1: Responsive Design
 
-![Feature 1](images/warm-colour.png)
+![Feature 1](images/responsive-design.png)
 _This feature is essentially a preset of "warm" hex values. This is implemented by a few lines of code that randomises the hex value in a given array._
 
-### Feature 2: Random Colour
+### Feature 2: Button highlights
 
-![Feature 2](images/random.png)
+![CLR button](images/button-highlight1.png)
+![Operator button](images/button-highlight2.png)
+![EQL button](images/button-highlight3.png)
+![Regular number input](images/button-highlight4.png)
+
 _This feature randomizes the hex value. This code was difficult to implement, so I used stack overflow for help._
-
-### Feature 3: Pencil
-
-![Feature 3](images/pencil-mode.png)
-_This pencil feature changes the opacity of the square from light to dark. Due to the opacity changing, this feature doesn't show in dark mode. I will need to come back to this._
 
 ---
 
